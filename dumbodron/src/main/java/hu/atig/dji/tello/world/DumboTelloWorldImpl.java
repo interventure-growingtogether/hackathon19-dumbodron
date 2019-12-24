@@ -94,5 +94,4 @@ public class DumboTelloWorldImpl extends TelloWorldImpl {
 			logger.info("Set speed command was executed successfully");
 		}
 	}
-
 }

@@ -112,7 +112,30 @@ public abstract class TelloWorldImpl implements TelloWorld {
 
   }
   
-  protected TelloDrone getTelloDron() {
+	
+	@Override
+	public Integer getSpeed() {
+		TelloCommand command = new BasicTelloCommand(TelloCommandValues.CURRENT_SPEED);
+		String response = getTelloCommunication().readCommand(command);
+		if (response != null) {
+			logger.info("Get speed command was executed successfully, result:" + response);
+			return Integer.valueOf(response);
+		}
+		return null;
+	}
+	
+	@Override
+	public Integer getBattery() {
+		TelloCommand command = new BasicTelloCommand(TelloCommandValues.CURRENT_BATTERY);
+		String response = getTelloCommunication().readCommand(command);
+		if (response != null) {
+			logger.info("Get battery command was executed successfully, result: " + response);
+			return Integer.valueOf(response);
+		}
+		return null;
+	}
+  
+  public TelloDrone getTelloDron() {
 	  return telloDrone;
   }
 
