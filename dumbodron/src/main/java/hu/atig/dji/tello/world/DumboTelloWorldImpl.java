@@ -55,7 +55,7 @@ public class DumboTelloWorldImpl extends TelloWorldImpl {
 		TelloCommand command = new BasicTelloCommand(TelloCommandValues.CW + " " + angle);
 		boolean executionSuccessful = getTelloCommunication().executeCommand(command);
 		if (executionSuccessful) {
-			logger.info("Forward command was executed successfully");
+			logger.info("Rotate right command was executed successfully");
 		}
 	}
 
@@ -64,7 +64,7 @@ public class DumboTelloWorldImpl extends TelloWorldImpl {
 		TelloCommand command = new BasicTelloCommand(TelloCommandValues.CCW + " " + angle);
 		boolean executionSuccessful = getTelloCommunication().executeCommand(command);
 		if (executionSuccessful) {
-			logger.info("Forward command was executed successfully");
+			logger.info("Rotate left command was executed successfully");
 		}
 	}
 
