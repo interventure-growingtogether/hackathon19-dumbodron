@@ -26,38 +26,70 @@ public class ScriptExecutor {
       telloWorld.setSpeed(50);
       telloWorld.down(60);
 
-      for (Block block : script.getBlocks()) {
-        if (block.getName().equalsIgnoreCase("forward")) {
-          telloWorld.forward(block.getArg().getValue() * BLOCK_SCALE);
-        }
-        if (block.getName().equalsIgnoreCase("hop")) {
-          telloWorld.doFlip(TelloFlip.forward);
-        }
-        if (block.getName().equalsIgnoreCase("back")) {
-          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
-        }
-        if (block.getName().equalsIgnoreCase("right")) {
-          telloWorld.rotatateRight(90);
-        }
-        if (block.getName().equalsIgnoreCase("left")) {
-          telloWorld.rotateLeft(90);
-        }
-        if (block.getName().equalsIgnoreCase("up")) {
-          telloWorld.up(block.getArg().getValue() * BLOCK_SCALE);
-        }
-        if (block.getName().equalsIgnoreCase("down")) {
-          telloWorld.down(block.getArg().getValue() * BLOCK_SCALE);
-        }
-        if (block.getName().equalsIgnoreCase("shrink")) {
-            telloWorld.left(block.getArg().getValue() * BLOCK_SCALE);
-        }
-        if (block.getName().equalsIgnoreCase("grow")) {
-            telloWorld.right(block.getArg().getValue() * BLOCK_SCALE);
-        }
+      if(script.getSprite().startsWith("dronTop")) {
+    	  executeTop(telloWorld, script);
+      } else {
+    	  executeDefault(telloWorld, script);
       }
 
     } finally {
       telloWorld.land();
     }
+  }
+  
+  private void executeDefault(TelloWorld telloWorld, Script script) {
+	  for (Block block : script.getBlocks()) {
+	        if (block.getName().equalsIgnoreCase("forward")) {
+	          telloWorld.forward(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("hop")) {
+	          telloWorld.doFlip(TelloFlip.forward);
+	        }
+	        if (block.getName().equalsIgnoreCase("back")) {
+	          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("right")) {
+	          telloWorld.rotatateRight(90);
+	        }
+	        if (block.getName().equalsIgnoreCase("left")) {
+	          telloWorld.rotateLeft(90);
+	        }
+	        if (block.getName().equalsIgnoreCase("up")) {
+	          telloWorld.up(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("down")) {
+	          telloWorld.down(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("shrink")) {
+	            telloWorld.left(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("grow")) {
+	            telloWorld.right(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	      }
+  }
+  //up-left; down-right; forward-forward; back-back; shink-down; grow-up; 
+  private void executeTop(TelloWorld telloWorld, Script script) {
+	  for (Block block : script.getBlocks()) {
+	        if (block.getName().equalsIgnoreCase("forward")) {
+	          telloWorld.forward(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("back")) {
+	          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("up")) {
+	        	telloWorld.left(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("down")) {
+	        	telloWorld.right(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("shrink")) {
+	        	telloWorld.down(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	        if (block.getName().equalsIgnoreCase("grow")) {
+	        	telloWorld.up(block.getArg().getValue() * BLOCK_SCALE);
+	        }
+	      }
+	  
   }
 }
