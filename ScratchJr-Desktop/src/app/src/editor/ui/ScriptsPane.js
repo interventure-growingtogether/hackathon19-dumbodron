@@ -50,6 +50,7 @@ export default class ScriptsPane {
     static runBlock (e, div) {
         e.preventDefault();
         e.stopPropagation();
+        console.log('runBlock before addRunScript', div);
         var b = div.owner.findFirst();
         //	if (b.aStart) b = b.next;
         if (!b) {

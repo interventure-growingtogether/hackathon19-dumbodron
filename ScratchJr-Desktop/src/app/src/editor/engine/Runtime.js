@@ -3,6 +3,8 @@ import Project from '../ui/Project';
 import Prims from './Prims';
 import Thread from './Thread';
 
+import Api from '../../utils/Api';
+
 export default class Runtime {
     constructor () {
         this.threadsRunning = [];
@@ -88,6 +90,22 @@ export default class Runtime {
 
     addRunScript (spr, b) {
         this.restartThread(spr, b);
+        if(spr.name === 'Tic' && b.blocktype === 'onflag') {
+            let args = [];
+            let block = b;
+            while(block !== null) {
+                args.push({
+                    arg: block.arg,
+                    data: null,
+                    name: block.blocktype
+                });
+
+                block = b.next;
+            }
+            Api.postRequest(this, {blocks: args}, function(response) {
+                console.log('whenDone on custom request', response)
+            });
+        }
     }
 
     stopThreads () {

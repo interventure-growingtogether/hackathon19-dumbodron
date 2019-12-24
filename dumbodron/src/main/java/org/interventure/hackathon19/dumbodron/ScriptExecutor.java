@@ -32,5 +32,6 @@ public class ScriptExecutor {
     telloWorld.land();
 
     System.out.println("yeah");
+    System.out.println(script);
   }
 }
