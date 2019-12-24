@@ -1,5 +1,6 @@
+
+let url = 'localhost:8080/tello/execute';
 export default class Api {
-  url = 'localhost:8080/tello/execute';
   static requestFromServer (pos, whenDone) {
     console.log('requestFromServer', pos, this.url);
     var xmlrequest = new XMLHttpRequest();
