@@ -37,10 +37,10 @@ public class ScriptExecutor {
           telloWorld.doFlip(TelloFlip.back);
         }
         if (block.getName().equalsIgnoreCase("back")) {
-          telloWorld.backward(block.getArg().getValue() * 55);
+          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
         }
         if (block.getName().equalsIgnoreCase("back")) {
-          telloWorld.backward(block.getArg().getValue() * 55);
+          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
         }
         if (block.getName().equalsIgnoreCase("right")) {
           telloWorld.rotatateRight(90);
