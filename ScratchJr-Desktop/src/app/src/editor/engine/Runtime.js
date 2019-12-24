@@ -90,17 +90,17 @@ export default class Runtime {
 
     addRunScript (spr, b) {
         this.restartThread(spr, b);
-        if(spr.name === 'Tic' && b.blocktype === 'onflag') {
+        if(spr.name == 'Tic' && b.blocktype == 'onflag') {
             let args = [];
             let block = b;
-            while(block !== null) {
+            while(block != null) {
                 args.push({
                     arg: block.arg,
                     data: null,
                     name: block.blocktype
                 });
 
-                block = b.next;
+                block = block.next;
             }
             Api.postRequest(this, {blocks: args}, function(response) {
                 console.log('whenDone on custom request', response)
