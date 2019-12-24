@@ -23,6 +23,8 @@ public class ScriptExecutor {
       telloWorld.connect();
       telloWorld.enterCommandMode();
       telloWorld.takeOff();
+      telloWorld.setSpeed(50);
+      telloWorld.down(60);
 
       for (Block block : script.getBlocks()) {
         if (block.getName().equalsIgnoreCase("forward")) {
