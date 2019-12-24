@@ -1,5 +1,6 @@
 package org.interventure.hackathon19.dumbodron;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/tello")
+@CrossOrigin
 public class DronController {
 
   private ScriptExecutor executor;
