@@ -11,5 +11,6 @@ public class ScriptExecutor {
 
   public void execute(Script script) {
     System.out.println("yeah");
+    System.out.println(script);
   }
 }
