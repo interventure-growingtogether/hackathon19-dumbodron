@@ -44,6 +44,10 @@ public interface TelloWorld {
    * @param speed Chosen speed.
    */
   void setSpeed(Integer speed);
+  
+  Integer getSpeed();
+  
+  Integer getBattery();
 
   void forward(Integer distance);
 
@@ -57,6 +61,7 @@ public interface TelloWorld {
 
   void rotateLeft(Integer angle);
 
+  void up(Integer distance);
 
-
+  void down(Integer distance);
 }

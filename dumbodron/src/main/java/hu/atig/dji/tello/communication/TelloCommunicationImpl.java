@@ -62,29 +62,38 @@ public class TelloCommunicationImpl implements TelloCommunication {
 
   @Override
   public boolean executeCommand(final TelloCommand telloCommand) {
+	  String response = internalExecuteCommand(telloCommand);
+	  return Boolean.valueOf(response);
+  }
+  
+	@Override
+	public String readCommand(TelloCommand telloCommand) {
+		return internalExecuteCommand(telloCommand);
+	}
+  
+  private String internalExecuteCommand(final TelloCommand telloCommand) {
     if (telloCommand == null) {
-      logger.info("TelloCommand was null");
-      return false;
-    }
-    if (!ds.isConnected()) {
-      logger.info("Tello connection lost");
-      return false;
-    }
+        logger.info("TelloCommand was null");
+        return null;
+      }
+      if (!ds.isConnected()) {
+        logger.info("Tello connection lost");
+        return null;
+      }
 
-    final String command = telloCommand.composeCommand();
-    logger.info("Executing tello command: " + command);
+      final String command = telloCommand.composeCommand();
+      logger.info("Executing tello command: " + command);
 
-    try {
-      sendData(command);
-      String response = receiveData();
-      logger.info("Tello response: " + response);
-    } catch (IOException e) {
-      logger.info("Exception occurred during sending and receiving command");
-      logger.info(e.getMessage());
-      return false;
-    }
-
-    return true;
+      try {
+        sendData(command);
+        String response = receiveData();
+        logger.info("Tello response: " + response);
+        return response;
+      } catch (IOException e) {
+        logger.info("Exception occurred during sending and receiving command");
+        logger.info(e.getMessage());
+        return null;
+      }
   }
 
   @Override

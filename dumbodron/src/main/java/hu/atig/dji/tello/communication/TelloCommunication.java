@@ -19,6 +19,8 @@ public interface TelloCommunication {
    * @throws IOException
    */
   boolean executeCommand(final TelloCommand telloCommand);
+  
+  String readCommand(final TelloCommand telloCommand);
 
   void executeCommands(final List<TelloCommand> telloCommandList);
 

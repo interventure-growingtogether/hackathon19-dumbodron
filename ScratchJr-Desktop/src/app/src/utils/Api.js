@@ -1,7 +1,7 @@
 import { ClientRequest } from 'electron-compile';
 let url = 'localhost:8080/tello/execute';
+
 export default class Api {
-  
   static postFetchRequest(pos, data, whenDone) {
     const options = {
       method: 'POST',
