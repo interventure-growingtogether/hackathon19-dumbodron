@@ -11,7 +11,7 @@ public class Block {
 
   private String name;
   private String data;
-  private Integer arg;
+  private Argument arg;
 
   public String getName() {
     return name;
@@ -21,11 +21,11 @@ public class Block {
     this.name = name;
   }
 
-  public Integer getArg() {
+  public Argument getArg() {
     return arg;
   }
 
-  public void setArg(Integer arg) {
+  public void setArg(Argument arg) {
     this.arg = arg;
   }
 
