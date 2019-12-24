@@ -70,7 +70,7 @@ public class TelloWorldImpl implements TelloWorld {
 
   @Override
   public void doFlip(TelloFlip telloFlip) {
-    TelloCommand command = new BasicTelloCommand("flip l");
+    TelloCommand command = new BasicTelloCommand("flip " + telloFlip.getDirection());
     boolean executionSuccessful = telloCommunication.executeCommand(command);
     if (executionSuccessful) {
       logger.info("Flipping command was executed successfully");
@@ -111,5 +111,12 @@ public class TelloWorldImpl implements TelloWorld {
   public void rotateLeft(Integer angle) {
 
   }
+  
+  protected TelloDrone getTelloDron() {
+	  return telloDrone;
+  }
 
+  protected TelloCommunication getTelloCommunication() {
+	  return telloCommunication;
+  }
 }

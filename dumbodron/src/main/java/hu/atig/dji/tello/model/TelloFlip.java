@@ -2,12 +2,15 @@ package hu.atig.dji.tello.model;
 
 public enum TelloFlip {
 
-  left,
-  right,
-  forward,
-  backLeft,
-  backRight,
-  fontLeft,
-  frontRight
+	left("l"), right("r"), forward("f"), back("b");
 
+	private String direction;
+	
+	private TelloFlip(String direction) {
+		this.direction = direction;
+	}
+
+	public String getDirection() {
+		return this.direction;
+	}
 }

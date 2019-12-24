@@ -14,7 +14,7 @@ public class Main {
     telloWorld.connect();
     telloWorld.enterCommandMode();
     telloWorld.takeOff();
-    telloWorld.doFlip(TelloFlip.backLeft);
+    telloWorld.doFlip(TelloFlip.back);
 
     try {
       sleep(1000);
