@@ -11,7 +11,7 @@ import hu.atig.dji.tello.model.command.TelloCommand;
 import hu.atig.dji.tello.model.command.TelloCommandValues;
 import java.util.logging.Logger;
 
-public class TelloWorldImpl implements TelloWorld {
+public abstract class TelloWorldImpl implements TelloWorld {
 
   private static final Logger logger = Logger.getLogger(TelloWorldImpl.class.getName());
 

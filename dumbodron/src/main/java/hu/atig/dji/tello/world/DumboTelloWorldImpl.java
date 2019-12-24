@@ -68,4 +68,31 @@ public class DumboTelloWorldImpl extends TelloWorldImpl {
 		}
 	}
 
+	@Override
+	public void up(Integer distance) {
+		TelloCommand command = new BasicTelloCommand(TelloCommandValues.UP + " " + distance);
+		boolean executionSuccessful = getTelloCommunication().executeCommand(command);
+		if (executionSuccessful) {
+			logger.info("Up command was executed successfully");
+		}
+	}
+
+	@Override
+	public void down(Integer distance) {
+		TelloCommand command = new BasicTelloCommand(TelloCommandValues.DOWN + " " + distance);
+		boolean executionSuccessful = getTelloCommunication().executeCommand(command);
+		if (executionSuccessful) {
+			logger.info("Down command was executed successfully");
+		}
+	}
+	
+	@Override
+	public void setSpeed(Integer speed) {
+		TelloCommand command = new BasicTelloCommand(TelloCommandValues.SPEED + " " + speed);
+		boolean executionSuccessful = getTelloCommunication().executeCommand(command);
+		if (executionSuccessful) {
+			logger.info("Set speed command was executed successfully");
+		}
+	}
+
 }
