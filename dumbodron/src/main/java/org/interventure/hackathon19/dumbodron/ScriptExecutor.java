@@ -5,8 +5,6 @@ import hu.atig.dji.tello.world.DumboTelloWorldImpl;
 import hu.atig.dji.tello.world.TelloWorld;
 import org.springframework.stereotype.Service;
 
-import static com.sun.tools.javac.code.Flags.BLOCK;
-
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
  * @since 2019-12-24
@@ -33,12 +31,6 @@ public class ScriptExecutor {
         if (block.getName().equalsIgnoreCase("hop")) {
           telloWorld.doFlip(TelloFlip.forward);
         }
-        if (block.getName().equalsIgnoreCase("home")) {
-          telloWorld.doFlip(TelloFlip.back);
-        }
-        if (block.getName().equalsIgnoreCase("back")) {
-          telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
-        }
         if (block.getName().equalsIgnoreCase("back")) {
           telloWorld.backward(block.getArg().getValue() * BLOCK_SCALE);
         }
@@ -53,6 +45,12 @@ public class ScriptExecutor {
         }
         if (block.getName().equalsIgnoreCase("down")) {
           telloWorld.down(block.getArg().getValue() * BLOCK_SCALE);
+        }
+        if (block.getName().equalsIgnoreCase("shrink")) {
+            telloWorld.left(block.getArg().getValue() * BLOCK_SCALE);
+        }
+        if (block.getName().equalsIgnoreCase("grow")) {
+            telloWorld.right(block.getArg().getValue() * BLOCK_SCALE);
         }
       }
 

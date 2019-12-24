@@ -77,43 +77,7 @@ public abstract class TelloWorldImpl implements TelloWorld {
     }
   }
 
-  @Override
-  public void setSpeed(Integer speed) {
-
-  }
-
-  @Override
-  public void forward(Integer distance) {
-
-  }
-
-  @Override
-  public void backward(Integer distance) {
-
-  }
-
-  @Override
-  public void right(Integer distance) {
-
-  }
-
-  @Override
-  public void left(Integer distance) {
-
-  }
-
-  @Override
-  public void rotatateRight(Integer angle) {
-
-  }
-
-  @Override
-  public void rotateLeft(Integer angle) {
-
-  }
-  
-	
-	@Override
+    @Override
 	public Integer getSpeed() {
 		TelloCommand command = new BasicTelloCommand(TelloCommandValues.CURRENT_SPEED);
 		String response = getTelloCommunication().readCommand(command);
