@@ -95,14 +95,14 @@ export default class Runtime {
             let block = b;
             while(block != null) {
                 args.push({
-                    arg: block.arg,
+                    arg: { "type" : block.arg ? block.arg.argType : '', "value" : block.arg ? block.arg.argValue : '' },
                     data: null,
                     name: block.blocktype
                 });
 
                 block = block.next;
             }
-            Api.postRequest(this, {blocks: args}, function(response) {
+            Api.postFetchRequest(this, {blocks: args}, function(response) {
                 console.log('whenDone on custom request', response)
             });
         }
