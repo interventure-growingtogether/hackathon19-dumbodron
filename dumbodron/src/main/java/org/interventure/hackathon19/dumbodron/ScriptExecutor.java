@@ -33,6 +33,21 @@ public class ScriptExecutor {
         if (block.getName().equalsIgnoreCase("hop")) {
           telloWorld.doFlip(TelloFlip.forward);
         }
+        if (block.getName().equalsIgnoreCase("home")) {
+          telloWorld.doFlip(TelloFlip.back);
+        }
+        if (block.getName().equalsIgnoreCase("back")) {
+          telloWorld.backward(block.getArg().getValue() * 55);
+        }
+        if (block.getName().equalsIgnoreCase("back")) {
+          telloWorld.backward(block.getArg().getValue() * 55);
+        }
+        if (block.getName().equalsIgnoreCase("right")) {
+          telloWorld.rotatateRight(90);
+        }
+        if (block.getName().equalsIgnoreCase("left")) {
+          telloWorld.rotateLeft(90);
+        }
         if (block.getName().equalsIgnoreCase("up")) {
           telloWorld.up(block.getArg().getValue() * BLOCK_SCALE);
         }
