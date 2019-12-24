@@ -15,6 +15,10 @@ public class Script {
 
   private List<Block> blocks;
 
+  private String sprite;
+  public String getSprite() { return sprite; }
+  public void setSprite(String sprite) { this.sprite = sprite; }
+
   public List<Block> getBlocks() {
     return blocks;
   }
@@ -27,7 +31,7 @@ public class Script {
   public String toString() {
     ObjectMapper mapper = new ObjectMapper();
     try {
-      return mapper.writeValueAsString(blocks);
+      return mapper.writeValueAsString(this);
     } catch (JsonProcessingException e) {
       e.printStackTrace();
       return "Ups!";

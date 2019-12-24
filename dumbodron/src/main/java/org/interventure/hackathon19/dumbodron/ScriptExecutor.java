@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 public class ScriptExecutor {
 
   public void execute(Script script) {
+
+    System.out.println(script);
+
     TelloWorld telloWorld = new DumboTelloWorldImpl();
     try {
       telloWorld.connect();

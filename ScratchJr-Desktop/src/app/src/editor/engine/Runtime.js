@@ -90,7 +90,7 @@ export default class Runtime {
 
     addRunScript (spr, b) {
         this.restartThread(spr, b);
-        if(spr.name == 'Tic' && b.blocktype == 'onflag') {
+        if(spr.name.indexOf("Drone") > -1 && b.blocktype == 'onflag') {
             let args = [];
             let block = b;
             while(block != null) {
@@ -102,7 +102,7 @@ export default class Runtime {
 
                 block = block.next;
             }
-            Api.postFetchRequest(this, {blocks: args}, function(response) {
+            Api.postFetchRequest(this, {blocks: args, sprite: spr.name}, function(response) {
                 console.log('whenDone on custom request', response)
             });
         }
